@@ -249,9 +249,9 @@ if st.session_state.get('data_uploaded', False):
         st.markdown("### 🔥 Mood Insights")
         
         if top_mood == "Energetic":
-            st.write("💪 Adrenaline and Dopamine Addict")
+            st.write("💪 Such an Adrenaline and Dopamine Addict")
         elif top_mood == "Chill":
-            st.write("🌙 "Just a Chill guy"")
+            st.write("🌙 You're just a chill person like that")
         elif top_mood == "Happy":
             st.write("✨ You enjoy upbeat, feel-good music – Let's catch those feels!")
         elif top_mood == "Sad":
