@@ -19,40 +19,38 @@ st.set_page_config(
 # Custom CSS
 st.markdown("""
 <style>
-    .main-header {
-        font-size: 3rem;
-        font-weight: bold;
-        text-align: center;
-        margin-bottom: 1rem;
-    }
-    .sub-header {
-        font-size: 1.2rem;
-        text-align: center;
-        color: #666;
-        margin-bottom: 2rem;
-    }
-    .metric-card {
-        background-color: #f0f2f6;
-        padding: 1rem;
-        border-radius: 0.5rem;
-        margin: 0.5rem 0;
-    }
-    .success-box {
-        background-color: #d4edda;
-        border: 1px solid #c3e6cb;
-        border-radius: 0.5rem;
-        padding: 1rem;
-        margin: 1rem 0;
-    }
-    .feature-box {
-        background-color: #282828;
-        border-radius: 15px;
-        padding: 25px;
-        margin: 15px 0;
-        border-left: 5px solid #1DB954;
-    }
+body {
+    background-color: #0f172a;
+    color: white;
+}
+.main-header {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+.sub-header {
+    font-size: 1.1rem;
+    text-align: center;
+    color: #cbd5f5;
+    margin-bottom: 2rem;
+}
+.metric-card {
+    background-color: #1e293b;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+.feature-box {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 25px;
+    margin: 15px 0;
+    border-left: 5px solid #22c55e;
+}
 </style>
 """, unsafe_allow_html=True)
+
 
 
 # ============================================================================
@@ -123,8 +121,8 @@ def get_top_artists(n=10):
 # ============================================================================
 
 # Title
-st.markdown('<div class="main-header">🎵 Spotify Wrapped 🎵</div>', unsafe_allow_html=True)
-st.markdown('<div class="sub-header">Your personal music insights, powered by ML</div>', unsafe_allow_html=True)
+st.markdown('<div class="main-header">🎵 Rach's Spotify Wrapped 🎵</div>', unsafe_allow_html=True)
+st.markdown('<div class="sub-header">A behavioral analysis of your 2025 music taste</div>', unsafe_allow_html=True)
 
 # Check API health
 api_healthy, health_data = check_api_health()
@@ -156,7 +154,7 @@ st.divider()
 # SECTION 1: RECOMMENDATIONS INFO
 # ============================================================================
 
-st.header("🎯 Personalized Music Recommendations")
+st.header("Recs we think you'd love")
 
 st.markdown("""
 <div class='feature-box'>
@@ -223,7 +221,7 @@ st.divider()
 # ============================================================================
 
 if st.session_state.get('data_uploaded', False):
-    st.header("🎧 Your Listening Mood Analysis")
+    st.header("🎧 Your Music Mood Profile")
     
     with st.spinner("Analyzing your mood distribution..."):
         success, mood_data = get_mood_distribution()
@@ -251,13 +249,13 @@ if st.session_state.get('data_uploaded', False):
         st.markdown("### 🔥 Mood Insights")
         
         if top_mood == "Energetic":
-            st.write("💪 You love high-energy tracks – probably gym or hype playlists!")
+            st.write("💪 Adrenaline and Dopamine Addict")
         elif top_mood == "Chill":
-            st.write("🌙 You prefer calm, acoustic vibes – late night listener!")
+            st.write("🌙 "Just a Chill guy"")
         elif top_mood == "Happy":
-            st.write("✨ You enjoy upbeat, feel-good music – main character energy!")
+            st.write("✨ You enjoy upbeat, feel-good music – Let's catch those feels!")
         elif top_mood == "Sad":
-            st.write("🎭 You lean towards emotional tracks – deep feels!")
+            st.write("🎭 You lean towards emotional tracks – i feel ya")
         
         # Additional stats
         success_stats, stats_data = get_stats()
@@ -284,7 +282,7 @@ if st.session_state.get('data_uploaded', False):
         # Top Artists
         success_artists, artists_data = get_top_artists(10)
         if success_artists:
-            st.subheader("🎤 Your Top 10 Artists")
+            st.subheader("🎤These people live rent free in your head!")
             
             artists_df = pd.DataFrame(artists_data['top_artists'])
             
@@ -300,6 +298,11 @@ else:
     st.info("📤 Upload your Spotify CSV above to see your personalized mood analysis!")
     st.info("🎯 Or go to the Recommendations page to discover new music without uploading!")
     st.divider()
+
+st.divider()
+
+st.markdown("### 🎬 Final verdict")
+st.write("If my life was a movie, it would be written by my top artists and directed by my emotional instability.")
 
 # ============================================================================
 # FOOTER
