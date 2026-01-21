@@ -19,37 +19,65 @@ st.set_page_config(
 # Custom CSS
 st.markdown("""
 <style>
-body {
-    background-color: #0f172a;
-    color: white;
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;500;700&display=swap');
+
+
+* {
+    font-family: 'Inter', sans-serif;
 }
+
+body {
+    background: linear-gradient(180deg, #021024, #052659);
+    color: #C1E8FF;
+}
+
 .main-header {
     font-size: 3rem;
     font-weight: bold;
     text-align: center;
     margin-bottom: 0.5rem;
+    color: #C1E8FF;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 1px;
 }
+
 .sub-header {
     font-size: 1.1rem;
     text-align: center;
-    color: #cbd5f5;
+    color: #7DA0CA;
     margin-bottom: 2rem;
+    font-family: 'Playfair Display', serif;
 }
-.metric-card {
-    background-color: #1e293b;
-    padding: 1rem;
-    border-radius: 1rem;
-}
+
+
 .feature-box {
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(10px);
+    background: rgba(84, 131, 179, 0.15); /* #5483B3 */
+    backdrop-filter: blur(12px);
     border-radius: 20px;
     padding: 25px;
     margin: 15px 0;
-    border-left: 5px solid #22c55e;
+    border-left: 6px solid #7DA0CA;
 }
+
+div[data-testid="metric-container"] {
+    background: rgba(84, 131, 179, 0.15);
+    border-radius: 16px;
+    padding: 10px;
+    border: 1px solid rgba(193,232,255,0.2);
+}
+
+.stButton > button {
+    background: linear-gradient(90deg, #5483B3, #7DA0CA);
+    color: #021024;
+    border-radius: 12px;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    font-weight: 600;
+}
+
 </style>
 """, unsafe_allow_html=True)
+
 
 
 
