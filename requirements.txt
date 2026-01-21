@@ -1,0 +1,12 @@
+flask
+flask-cors
+pandas
+numpy
+scikit-learn
+scipy
+matplotlib
+seaborn
+werkzeug
+streamlit
+plotly
+requests
